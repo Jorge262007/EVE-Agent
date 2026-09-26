@@ -1,0 +1,421 @@
+/* ============================================================
+   EVE — "Ciudad Sion" palette (pink/cyan neon on black)
+   btop-inspired look: thin-bordered panels with an embedded title.
+   ============================================================ */
+
+Screen {
+    background: #000000;
+    color: #f2eeff;
+}
+
+/* ---- Root layout: matrix rain strips on both sides, app in the middle ---- */
+#root {
+    height: 1fr;
+    width: 1fr;
+}
+
+.matrix-strip {
+    width: 52;
+    height: 1fr;
+    background: #0a0714;
+}
+
+#main-column {
+    width: 1fr;
+    height: 1fr;
+    background: #0a0714;
+}
+
+/* ---- Header bar (full round box, like the other panels — no more cut-off line) ---- */
+#header {
+    height: 3;
+    background: #0a0714;
+    color: #3ee6ff;
+    text-style: bold;
+    border: round #ff2e97;
+    border-title-color: #ff2e97;
+    border-title-style: bold;
+    padding: 0 1;
+}
+
+#header-text {
+    width: auto;
+    content-align: left middle;
+    height: 1;
+}
+
+#header .spacer {
+    width: 1fr;
+    height: 1;
+}
+
+.header-btn {
+    height: 1;
+    min-width: 12;
+    margin: 0 0 0 1;
+    background: #120c22;
+    color: #f2eeff;
+    border: none;
+    content-align: center middle;
+}
+
+.header-btn:hover {
+    color: #3ee6ff;
+    text-style: bold;
+}
+
+/* ---- Online/Local labels: display-only, not functional. Online is
+   shown lit up since that's the only backend actually wired up. ---- */
+.mode-segment {
+    height: 1;
+    min-width: 12;
+    margin: 0 0 0 1;
+    background: #120c22;
+    color: #f2eeff;
+    border: none;
+    content-align: center middle;
+}
+
+#mode-cloud-btn {
+    margin: 0;
+}
+
+.mode-segment.active {
+    background: #3ee6ff;
+    color: #0a0714;
+    text-style: bold;
+}
+
+.mode-segment:hover {
+    color: #3ee6ff;
+    text-style: bold;
+}
+
+.mode-segment.active:hover {
+    color: #0a0714;
+}
+
+#header .title {
+    color: #ff2e97;
+    text-style: bold;
+}
+
+#header .status {
+    color: #9a8fc2;
+}
+
+/* ---- Main chat panel (btop-style box) ---- */
+#chat-panel {
+    border: round #ff2e97;
+    border-title-color: #ff2e97;
+    border-title-style: bold;
+    background: #0a0714;
+    padding: 0 1;
+}
+
+#chat-log {
+    background: #0a0714;
+    scrollbar-color: #ff2e97 #1a1228;
+    scrollbar-background: #120c22;
+    scrollbar-color-hover: #3ee6ff;
+}
+
+/* ---- Chat rows: horizontal container, spacer pushes bubble left/right ---- */
+.msg-row {
+    height: auto;
+    width: 100%;
+    margin: 0 1 1 1;
+}
+
+.spacer {
+    width: 1fr;
+    height: 1;
+}
+
+.bubble-col {
+    width: auto;
+    max-width: 70%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+.bubble-col .caption {
+    color: #6a5f96;
+    text-style: italic;
+    height: 1;
+    padding: 0 1;
+}
+
+.msg-user {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    color: #ffd6ec;
+    background: #1c0e1a;
+    border: round #ff2e97;
+    padding: 0 1;
+}
+
+.msg-model {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    color: #d6f7ff;
+    background: #0c1a1e;
+    border: round #3ee6ff;
+    padding: 0 1;
+}
+
+/* ---- Turn box: single bordered container for a whole assistant turn.
+   Holds, top to bottom: any tool-call collapsibles, then the final reply.
+   Neither of those pieces has its own border — the box supplies the one
+   and only border so the turn reads as a single message. ---- */
+.turn-box {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    color: #d6f7ff;
+    background: #0c1a1e;
+    border: round #3ee6ff;
+    padding: 0;
+}
+
+.turn-reply {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    background: transparent;
+    padding: 0 1;
+}
+
+.msg-system {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    color: #d8d2f0;
+    background: #140f22;
+    border: round #8b5cf6;
+    padding: 0 1;
+}
+
+.tool-collapsible {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    background: #0c1a1e;
+    border: none;
+    border-bottom: solid #1c3a40;
+    padding: 0;
+    margin: 0;
+}
+
+.tool-collapsible > Contents {
+    padding: 0 1 1 1;
+}
+
+.tool-output {
+    background: transparent;
+    padding: 0;
+}
+
+.msg-error {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    color: #ffc2cc;
+    background: #220f14;
+    border: round #ff4d6d;
+    padding: 0 1;
+}
+
+/* ---- Input row (btop-style bottom box) ---- */
+#input-panel {
+    height: 5;
+    border: round #3ee6ff;
+    border-title-color: #3ee6ff;
+    border-title-style: bold;
+    background: #0a0714;
+}
+
+#input-row {
+    height: 100%;
+    align-vertical: middle;
+}
+
+#input-field {
+    background: #0a0714;
+    color: #f2eeff;
+    border: none;
+    padding: 0 1;
+    width: 1fr;
+    height: 100%;
+    content-align: left middle;
+}
+
+#input-field:focus {
+    background: #120c22;
+}
+
+#input-field > .input--placeholder {
+    color: #6a6480;
+    text-style: dim;
+}
+
+#send-btn {
+    width: auto;
+    min-width: 8;
+    height: 3;
+    background: #3ee6ff;
+    color: #0a0714;
+    text-style: bold;
+    border: none;
+    content-align: center middle;
+    text-align: center;
+    margin: 0 0 0 1;
+}
+
+#send-btn:hover {
+    background: #eafcff;
+}
+
+/* ---- Status / footer ---- */
+#statusbar {
+    height: 1;
+    background: #0a0714;
+    color: #6a5f96;
+}
+
+#statusbar .thinking {
+    color: #3ee6ff;
+    text-style: bold blink;
+}
+
+#statusbar .blocked {
+    color: #ff4d6d;
+}
+
+Footer {
+    background: #0a0714;
+    color: #9a8fc2;
+}
+
+Footer > .footer--key {
+    color: #ff2e97;
+    text-style: bold;
+}
+
+Footer > .footer--description {
+    color: #6a5f96;
+}
+
+/* ---- Markdown rendering inside EVE's bubbles ----
+   NOTE: do not set width:100% on Markdown or its block children here —
+   .bubble-col is width:auto (it sizes itself to its content), so a child
+   asking for 100% of an undetermined width resolves to 0 and the whole
+   bubble collapses to nothing. The bubble classes below (.msg-system,
+   .msg-model, .turn-box, etc.) already carry max-width:100%, which is
+   enough to keep long unbroken lines (URLs, inline code) from pushing
+   the bubble past the edge of the screen — Textual wraps normal text
+   inside that automatically. */
+Markdown {
+    background: transparent;
+}
+
+MarkdownH1, MarkdownH2, MarkdownH3 {
+    color: #3ee6ff;
+    text-style: bold;
+    background: transparent;
+}
+
+MarkdownFence {
+    background: #0a0714;
+    border: round #8b5cf6;
+    color: #d6f7ff;
+    margin: 1 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+MarkdownBlockQuote {
+    border-left: thick #ff2e97;
+    color: #b8aee0;
+}
+
+/* ---- Settings modal ---- */
+SettingsScreen {
+    align: center middle;
+    background: #0a0714 60%;
+}
+
+#settings-panel {
+    width: 80%;
+    max-width: 90;
+    height: 80%;
+    background: #0a0714;
+    border: round #ff2e97;
+    border-title-color: #ff2e97;
+    border-title-style: bold;
+    padding: 1 2;
+}
+
+.settings-label {
+    color: #3ee6ff;
+    text-style: bold;
+    margin: 1 0 0 0;
+}
+
+#system-prompt-input, #user-prompt-input {
+    border: round #8b5cf6;
+    background: #0d0a18;
+    color: #f2eeff;
+    height: 1fr;
+}
+
+.settings-sublabel {
+    color: #9a8fc2;
+    height: 1;
+    margin: 1 0 0 0;
+}
+
+#matrix-settings-row {
+    height: auto;
+    margin: 0 0 0 0;
+}
+
+.matrix-field {
+    width: 1fr;
+    height: auto;
+    margin: 0 1 0 0;
+}
+
+.matrix-field Input {
+    border: round #8b5cf6;
+    background: #0d0a18;
+    color: #f2eeff;
+    height: 3;
+}
+
+#settings-buttons {
+    height: 3;
+    margin: 1 0 0 0;
+    align: right middle;
+}
+
+#settings-buttons Button {
+    width: 12;
+    height: 3;
+    margin: 0 0 0 1;
+    background: #120c22;
+    color: #f2eeff;
+    border: round #6a5f96;
+}
+
+/* Same shape/size as the plain button above — just the accent color
+   swapped in, instead of using Textual's built-in "primary" variant
+   (which carries its own sizing that fought the width rule here). */
+#save-settings {
+    background: #ff2e97;
+    color: #0a0714;
+    border: round #ff2e97;
+    text-style: bold;
+}
