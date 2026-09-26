@@ -8,6 +8,7 @@ Gemini-powered terminal agent with shell execution, btop-style neon look.
   <img src="Screenshots/eve-00.png" width="280" />
   <img src="Screenshots/eve-01.png" width="280" />
   <img src="Screenshots/eve-02.png" width="280" />
+  <img src="Screenshots/eve-03.png" width="280" />
 </p>
 
 > ⚠️ **Security warning:** EVE can execute shell commands **without asking
