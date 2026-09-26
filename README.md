@@ -2,6 +2,14 @@
 
 Gemini-powered terminal agent with shell execution, btop-style neon look.
 
+## Demo
+
+<p float="left">
+  <img src="Screenshots/eve-00.png" width="280" />
+  <img src="Screenshots/eve-01.png" width="280" />
+  <img src="Screenshots/eve-02.png" width="280" />
+</p>
+
 > ⚠️ **Security warning:** EVE can execute shell commands **without asking
 > for confirmation**, guarded only by a small blacklist of catastrophic
 > patterns (`rm -rf /`, `mkfs`, fork bombs, etc — see `shell_exec.py`).
